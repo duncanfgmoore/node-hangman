@@ -1,7 +1,7 @@
 var Letter = require("./Letter.js");
 var inquirer = require("inquirer");
 
-var array = ["dog", "cat", "mouse", "bear", "moose", "horse", "snail"];
+var array = ["dog", "cat", "mouse", "bear", "horse", "snail"];
 var guessedLetters = [];
 
 
@@ -13,7 +13,7 @@ function WordSelecter(word) {
 }
 
 WordSelecter.prototype.splitFunction = function () {
-    console.log(this.letters);
+    //console.log(this.letters);
     //return this.letters.map(val => val.underscore()).join("");
     var wordIsEqualto = this.letters.map(function (val) {
         return val.underscore();
@@ -22,14 +22,7 @@ WordSelecter.prototype.splitFunction = function () {
 }
 
 
-var randomNumber =  Math.floor(Math.random() * array.length)
-
-
-
-
-
-
-
+var randomNumber = Math.floor(Math.random() * array.length)
 var hangmanWord = new WordSelecter(array[randomNumber]);
 
 
@@ -64,19 +57,18 @@ function playGame() {
 
                 if (userGuess === val.letter) {
                     val.ifshowing = true
-                    playGame();
-                }
+                   
+                }  
 
-                //    if (!userGuess === val.letter) {
-                //         console.log("That letter is not correct. Guess again.");
-                //         playGame();
-                //     }
+                
+               
+            });
 
-            })
-        })
+            playGame();
+        });
 
 
-}
+};
 
 playGame();
 
